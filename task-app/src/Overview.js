@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import App from './App';
+import React from 'react';
 
-class Overview extends Component {
+class Overview extends React.Component {
     render() {
-        return (
-          <div>
-            <App/>
-          </div>
-        );
-      }
-}
-
+        return (    
+                <ul>
+                {this.props.items.map(item => (
+                <li key={item.id}>{item.text}</li>
+                    ))}
+                </ul>
+      );
+    }
+  }
+  
 export default Overview;
