@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Overview from './Overview';
 
 class App extends Component {
   constructor(props) {
@@ -31,12 +32,15 @@ class App extends Component {
     return (
       <div>
         <h1>Task List</h1>
-        <form>
+        <Overview items={this.state.items} />
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor='new-task'>
             What needs to be done?
           </label>
           <input
             id="new-task"
+            onChange={this.handleChange}
+            value={this.state.text}
           />
           <button>
             Add
