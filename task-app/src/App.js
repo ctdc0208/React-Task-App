@@ -1,21 +1,34 @@
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        task: ["Task 1", "Task 2", "Task 3"],
+    };
+    this.onClickBtn = this.onClickBtn.bind(this);
+  }
+
+  onClearArray = () => {
+    this.setState({ task: [] });
+    console.log('Clear Array!');
+  };
+
+  onClickBtn() {
+    console.log('Button has been clicked!');
+  }
+
+
+  render() {
+    return (
+      <div>
+        <h1>Task List</h1>
+        <button onClick={this.onClickBtn}>Click Me!</button>
+
+        <button type="button" onClick={this.onClearArray}>Clear Array</button>
+      </div>
+    );
+  }
 }
 
 export default App;
