@@ -9,8 +9,24 @@ class App extends Component {
   }
 
 
-  
+  handleChange(e) {
+    this.setState({ text: e.target.value });
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.text.length === 0) {
+      return;
+    }
+    const newItem = {
+      text: this.state.text,
+      id: Date.now()
+    };
+    this.setState(state => ({
+      items: state.items.concat(newItem),
+      text: ''
+    }));
+  }
 
   render() {
     return (
