@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Overview from './Overview';
+import uniqid from "uniqid";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { items: [], text: "" };
+    this.state = { items: [], text: "", id: uniqid()};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
